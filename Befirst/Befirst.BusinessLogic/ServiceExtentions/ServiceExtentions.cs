@@ -13,7 +13,7 @@ namespace Befirst.BusinessLogic.ServiceExtentions
     {
         public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
         {
-            // mvc
+            // Mvc
             services.AddMvc();
 
             // Validation
