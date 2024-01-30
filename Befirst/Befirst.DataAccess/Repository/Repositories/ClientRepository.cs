@@ -7,7 +7,7 @@ namespace Befirst.DataAccess.Repository.Repositories
 {
     public class ClientRepository : IClientRepository
     {
-        public readonly BefirstDbContext _clientDbContext;
+        private readonly BefirstDbContext _clientDbContext;
 
         public ClientRepository(BefirstDbContext clientDbContext)
         {
