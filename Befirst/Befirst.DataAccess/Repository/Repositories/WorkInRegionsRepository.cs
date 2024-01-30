@@ -58,7 +58,7 @@ namespace Befirst.DataAccess.Repository.Repositories
                    .ToListAsync();
                 if (!string.IsNullOrEmpty(searchWord))
                 {
-                    allWorksInRegions = allWorksInRegions.Where(n => n.Region.Contains(searchWord) || n.School.Contains(searchWord) || n.Kindergarten.Contains(searchWord) || n.Amount.Contains(searchWord)).ToList();
+                    allWorksInRegions = allWorksInRegions.Where(n => n.Region.Contains(searchWord) || n.School.Contains(searchWord) || n.Kindergarten.Contains(searchWord)).ToList();
                 }
                 return allWorksInRegions;
             }

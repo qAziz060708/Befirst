@@ -10,6 +10,6 @@
 
         public string Kindergarten { get; set; }
 
-        public string Amount { get; set; }
+        public int Amount { get; set; }
     }
 }
