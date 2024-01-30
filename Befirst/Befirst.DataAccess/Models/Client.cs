@@ -8,7 +8,7 @@
 
         public string ClientLastName { get; set; }
 
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         public string Category { get; set; }
 
@@ -18,7 +18,7 @@
 
         public Gender Gender { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
     }
 
     public enum Gender

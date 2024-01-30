@@ -10,7 +10,7 @@ namespace Befirst.BusinessLogic.DTOs.RequestDTO
 
         public string ClientLastName { get; set; }
 
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         public string Category { get; set; }
 
@@ -20,7 +20,7 @@ namespace Befirst.BusinessLogic.DTOs.RequestDTO
 
         public Gender Gender { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
     }
 }
 public class ClientRequestDTOValidator : AbstractValidator<ClientRequestDTO>

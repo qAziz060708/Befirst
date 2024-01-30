@@ -11,7 +11,7 @@ namespace Befirst.BusinessLogic.DTOs.RequestDTO
 
         public string Kindergarten { get; set; }
 
-        public string Amount { get; set; }
+        public int Amount { get; set; }
     }
 }
 public class WorkInRegionsRequestDTOValidator : AbstractValidator<WorkInRegionsRequestDTO>
