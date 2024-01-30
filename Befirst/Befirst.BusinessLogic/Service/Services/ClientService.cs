@@ -31,11 +31,11 @@ namespace Befirst.BusinessLogic.Service.Services
             }
             catch (DbUpdateException ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"{ex.Message} , {ex.StackTrace}");
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"{ex.Message} , {ex.StackTrace}");
             }
         }
 
@@ -79,7 +79,7 @@ namespace Befirst.BusinessLogic.Service.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"{ex.Message} , {ex.StackTrace}");
             }
         }
 
@@ -99,7 +99,7 @@ namespace Befirst.BusinessLogic.Service.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception($"{ex.Message} , {ex.StackTrace}");
             }
         }
 

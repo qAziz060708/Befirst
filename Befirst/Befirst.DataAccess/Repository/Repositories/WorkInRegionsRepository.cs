@@ -7,7 +7,7 @@ namespace Befirst.DataAccess.Repository.Repositories
 {
     public class WorkInRegionsRepository : IWorkInRegionsRepository
     {
-        public readonly BefirstDbContext _workInRegionsDbContext;
+        private readonly BefirstDbContext _workInRegionsDbContext;
 
         public WorkInRegionsRepository(BefirstDbContext workInRegionsDbContext)
         {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Befirst.BusinessLogic.DTOs.ResponseDTO;
 using Befirst.BusinessLogic.DTOs.RequestDTO;
+using Befirst.BusinessLogic.DTOs.ResponseDTO;
 using Befirst.DataAccess.Models;
 
 namespace Befirst.BusinessLogic.DTOs.AutoMapper
@@ -10,14 +10,13 @@ namespace Befirst.BusinessLogic.DTOs.AutoMapper
         public AutoMapper()
         {
             // ClientAutoMapper
-            CreateMap<ClientRequestDTO, Client>().ReverseMap();
+            CreateMap<ClientRequestDTO, Client>();
             CreateMap<Client, ClientResponseDTO>()
                 .ForMember(clientResponseDTO => clientResponseDTO.ClientFullName,
-                opt => opt.MapFrom(client => $"{client.ClientFirstName} {client.ClientLastName}"))
-                .ReverseMap();
+                opt => opt.MapFrom(client => $"{client.ClientFirstName} {client.ClientLastName}"));
 
             // WorkOnRegionsAutoMapper
-            CreateMap<WorkInRegionsRequestDTO, WorkInRegions>().ReverseMap();
+            CreateMap<WorkInRegionsRequestDTO, WorkInRegions>();
             CreateMap<WorkInRegions, WorkInRegionsResponseDTO>();
         }
     }

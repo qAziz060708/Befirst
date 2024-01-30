@@ -1,5 +1,5 @@
-﻿using Befirst.DataAccess.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Befirst.DataAccess.Models;
 
 namespace Befirst.DataAccess.DbConnection
 {
