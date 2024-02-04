@@ -19,6 +19,7 @@ namespace Befirst.BusinessLogic.ServiceExtentions
             // Validation
             services.AddScoped<IValidator<ClientRequestDTO>, ClientRequestDTOValidator>();
             services.AddScoped<IValidator<WorkInRegionsRequestDTO>, WorkInRegionsRequestDTOValidator>();
+            services.AddScoped<IValidator<PaymentRequestDTO>, PaymentRequestDTOValidator>();
 
             // AutoMapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -26,10 +27,12 @@ namespace Befirst.BusinessLogic.ServiceExtentions
             // Repositories
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IWorkInRegionsRepository, WorkInRegionsRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
 
             // Services
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IWorkInRegionsService, WorkInRegionsService>();
+            services.AddScoped<IPaymentService, PaymentService>();
         }
     }
 }

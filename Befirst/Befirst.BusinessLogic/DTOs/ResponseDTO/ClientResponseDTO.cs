@@ -6,6 +6,6 @@
 
         public string ClientFullName { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
     }
 }

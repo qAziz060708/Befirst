@@ -18,6 +18,10 @@ namespace Befirst.BusinessLogic.DTOs.AutoMapper
             // WorkOnRegionsAutoMapper
             CreateMap<WorkInRegionsRequestDTO, WorkInRegions>();
             CreateMap<WorkInRegions, WorkInRegionsResponseDTO>();
+
+            // PaymentAutoMapper
+            CreateMap<PaymentRequestDTO, Payment>();
+            CreateMap<Payment, PaymentResponseDTO>();
         }
     }
 }
