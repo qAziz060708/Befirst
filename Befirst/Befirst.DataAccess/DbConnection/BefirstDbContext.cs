@@ -13,5 +13,7 @@ namespace Befirst.DataAccess.DbConnection
         public DbSet<Client> Clients { get; set; }
 
         public DbSet<WorkInRegions> WorksInRegions { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
     }
 }

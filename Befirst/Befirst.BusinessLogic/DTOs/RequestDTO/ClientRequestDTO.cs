@@ -20,7 +20,7 @@ namespace Befirst.BusinessLogic.DTOs.RequestDTO
 
         public Gender Gender { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; }
     }
 }
 public class ClientRequestDTOValidator : AbstractValidator<ClientRequestDTO>

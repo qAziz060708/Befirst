@@ -1,37 +1,38 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Befirst.BusinessLogic.DTOs.RequestDTO;
 using Befirst.BusinessLogic.DTOs.ResponseDTO;
-using Befirst.BusinessLogic.Service.IServices;
-using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Befirst.BusinessLogic.Service.IServices;
+using Befirst.BusinessLogic.Service.Services;
 
 namespace Befirst.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
 
-    public class WorkInRegionsController : ControllerBase
+    public class PaymentController : ControllerBase
     {
-        private readonly IWorkInRegionsService _workInRegionsService;
-        private readonly IValidator<WorkInRegionsRequestDTO> _validator;
+        private readonly IPaymentService _paymentService;
+        private readonly IValidator<PaymentRequestDTO> _validator;
 
-        public WorkInRegionsController(IWorkInRegionsService workInRegionsService, IValidator<WorkInRegionsRequestDTO> validator)
+        public PaymentController(IPaymentService paymentService, IValidator<PaymentRequestDTO> validator)
         {
-            _workInRegionsService = workInRegionsService;
+            _paymentService = paymentService;
             _validator = validator;
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> AddWorkInRegionsAsync(WorkInRegionsRequestDTO workInRegionsRequestDTO)
+        public async Task<ActionResult<int>> AddPaymentAsync(PaymentRequestDTO paymentRequestDTO)
         {
             try
             {
-                ValidationResult validationResult = await _validator.ValidateAsync(workInRegionsRequestDTO);
+                ValidationResult validationResult = await _validator.ValidateAsync(paymentRequestDTO);
                 if (validationResult.IsValid)
                 {
-                    return await _workInRegionsService.AddWorkInRegionsAsync(workInRegionsRequestDTO);
+                    return await _paymentService.AddPaymentAsync(paymentRequestDTO);
                 }
                 else
                 {
@@ -53,11 +54,11 @@ namespace Befirst.API.Controllers
         }
 
         [HttpGet("Id")]
-        public async Task<ActionResult<WorkInRegionsResponseDTO>> GetWorkInRegionsByIdAsync(int id)
+        public async Task<ActionResult<PaymentResponseDTO>> GetPaymentByIdAsync(int id)
         {
             try
             {
-                return await _workInRegionsService.GetWorkInRegionsByIdAsync(id);
+                return await _paymentService.GetPaymentByIdAsync(id);
             }
             catch (AutoMapperMappingException ex)
             {
@@ -74,11 +75,11 @@ namespace Befirst.API.Controllers
         }
 
         [HttpGet("All")]
-        public async Task<ActionResult<List<WorkInRegionsResponseDTO>>> GetAllWorksInRegionsAsync(string? searchWord)
+        public async Task<ActionResult<List<PaymentResponseDTO>>> GetAllPaymentsAsync(string? searchWord)
         {
             try
             {
-                return await _workInRegionsService.GetAllWorksInRegionsAsync(searchWord);
+                return await _paymentService.GetAllPaymentsAsync(searchWord);
             }
             catch (AutoMapperMappingException ex)
             {
@@ -95,18 +96,18 @@ namespace Befirst.API.Controllers
         }
 
         [HttpPut("Id")]
-        public async Task<ActionResult<int>> UpdateWorkInRegionsAsync(WorkInRegionsRequestDTO workInRegionsRequestDTO, int id)
+        public async Task<ActionResult<int>> UpdatePaymentAsync(PaymentRequestDTO paymentRequestDTO, int id)
         {
             try
             {
-                ValidationResult validationResult = await _validator.ValidateAsync(workInRegionsRequestDTO);
+                ValidationResult validationResult = await _validator.ValidateAsync(paymentRequestDTO);
                 if (validationResult.IsValid)
                 {
-                    return await _workInRegionsService.UpdateWorkInRegionsAsync(workInRegionsRequestDTO, id);
+                    return await _paymentService.UpdatePaymentAsync(paymentRequestDTO, id);
                 }
                 else
                 {
-                    throw new Exception("WorkInRegions for update is not available.");
+                    throw new Exception("Payment for update is not available.");
                 }
             }
             catch (AutoMapperMappingException ex)
@@ -124,11 +125,11 @@ namespace Befirst.API.Controllers
         }
 
         [HttpDelete("Id")]
-        public async Task<ActionResult<int>> DeleteClientAsync(int id)
+        public async Task<ActionResult<int>> DeletePaymentAsync(int id)
         {
             try
             {
-                return await _workInRegionsService.DeleteWorkInRegionsAsync(id);
+                return await _paymentService.DeletePaymentAsync(id);
             }
             catch (DbUpdateException ex)
             {
